@@ -5,17 +5,18 @@
     <link rel="stylesheet" type="text/css" media="all" th:href= "@{/loginStyle.css}" href="../static/loginStyle.css"/>
 </head>
 <body>
-
+<form action="" method="post">
     <div class="mainBox">
         <div class="loginBox">
             Login <input id="loginInput" placeholder="Enter Login..."> <br>
             Password<input id="passwordInput" placeholder="Enter password..."><br>
         </div>
         <div class="buttonBox">
-            <button>Registration</button>
+            <input type="submit" value="Log In">
             <br>
-            Don't have an account? <a th:href= "@{/registration}">Registrate</a>
+            Don't have an account? <a th:href="@{/registration}">Registrate</a>
         </div>
     </div>
+</form>
 </body>
 </html>

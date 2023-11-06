@@ -1,53 +1,35 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
 .mainBox {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
+    width: 300px;
+    margin: 0 auto;
 }
 
 .loginBox {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 8px 0;
+    text-align: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+.loginBox input {
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
     box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
-button {
+.buttonBox {
+    text-align: center;
+    padding: 20px;
+}
+
+.buttonBox input[type="submit"] {
     padding: 10px 20px;
-    background-color: #4caf50;
-    color: #fff;
+    background-color: #4CAF50;
+    color: white;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    margin-right: 10px;
 }
 
-a {
+.buttonBox a {
+    color: #007bff;
     text-decoration: none;
-    color: #4caf50;
-    font-size: 14px;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-a:hover {
-    text-decoration: underline;
 }
