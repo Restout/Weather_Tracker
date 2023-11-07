@@ -9,16 +9,22 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @NoArgsConstructor
-@Table(name = "Users")
+@Table(name = "User", schema = "Users")
 public class User {
     @Id
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    private int id;
     @Column(name = "Name")
-    String name;
+    private String name;
     @Column(name = "Login")
-    String login;
-    @Column(name = "password")
-    String password;
+    private String email;
+    @Column(name = "Password")
+    private String password;
 
+    public User(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
 }
