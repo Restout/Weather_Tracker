@@ -57,7 +57,7 @@ public class AuthController {
         try {
             Session session = authService.creatSessionForUser(user);
             Cookie cookie = new Cookie("Authentiaction", String.valueOf(session.getId()));
-            cookie.setMaxAge((int) (session.getExperationDate().getTime() - System.currentTimeMillis()));
+            cookie.setMaxAge((int) (session.getExperationDate().getTime() - System.currentTimeMillis())/1000);
             cookie.setPath("/");
             response.addCookie(cookie);
             SessionOut sessionOut = new SessionOut(session);

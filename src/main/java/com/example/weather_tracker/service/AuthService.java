@@ -32,15 +32,15 @@ public class AuthService {
         return new UserOut(user1);
     }
 
-    private boolean authorizeUser(User user) {
+    private boolean authorizeUser(UserIn user) {
         Optional<User> optionalUser = userRepository.findByEmail(user.getEmail());
         return user.getPassword().equals(optionalUser.get().getPassword());
     }
 
-    private Optional<Session> findNonExpiredSession(User user) {
+    private  Optional<Session> findNonExpiredSession(User user) {
         Iterable<Session> sessions = sessionRepository.findAllByUserId(user);
         for (Session s : sessions) {
-            if (s.getExperationDate().compareTo(new Date(System.currentTimeMillis())) < 0) {
+            if (s.getExperationDate().compareTo(new Date(System.currentTimeMillis())) > 0) {
                 return Optional.of(s);
             }
         }
@@ -52,7 +52,7 @@ public class AuthService {
         if (optionalUser.isEmpty()) {
             throw new NoUserException("Email is not registrant");
         }
-        if (!authorizeUser(optionalUser.get())) {
+        if (!authorizeUser(user)) {
             throw new UserCredentialsException("Login or Password are incorrect");
         }
         Optional<Session> optionalSession = findNonExpiredSession(optionalUser.get());
@@ -65,7 +65,7 @@ public class AuthService {
 
     public boolean validateSession(@CookieValue(name = "Authorization") Cookie cookie) {
         Session session = sessionRepository.findById(Integer.parseInt(cookie.getValue())).get();
-        if (session.getExperationDate().getTime() > System.currentTimeMillis()) {
+        if (session.getExperationDate().getTime() <= System.currentTimeMillis()) {
             return false;
         }
         return true;
