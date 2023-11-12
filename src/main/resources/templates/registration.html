@@ -9,6 +9,7 @@
 <body>
 <div class="container">
     <h2>Registration Form</h2>
+    <h5 id="error_message" th:if="${error!=null}" th:text="${error}"></h5>
     <form action="/registration" method="post" >
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>

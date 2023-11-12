@@ -7,6 +7,7 @@
 <body>
 <form action="/login" method="post">
     <div class="mainBox">
+        <h3 th:if="${error!=null}" th:text="${error}"></h3>
         <div class="loginBox">
             Email <input type="email" name="email" id="loginInput" placeholder="Enter Login..."> <br>
             Password<input type="password" name="password" id="passwordInput" placeholder="Enter password..."><br>

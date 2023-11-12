@@ -3,6 +3,7 @@ package com.example.weather_tracker.service;
 import com.example.weather_tracker.exceptions.NoUserException;
 import com.example.weather_tracker.exceptions.NullObjectException;
 import com.example.weather_tracker.exceptions.UserCredentialsException;
+import com.example.weather_tracker.exceptions.UserExistException;
 import com.example.weather_tracker.model.session.Session;
 import com.example.weather_tracker.model.user.User;
 import com.example.weather_tracker.model.user.UserIn;
@@ -25,6 +26,10 @@ public class AuthService {
     private SessionRepository sessionRepository;
 
     public UserOut createUser(User user) throws NullObjectException {
+        Optional<User> userOptional = userRepository.findByEmail(user.getEmail());
+        if(userOptional.isPresent()){
+            throw  new UserExistException("User already Exist");
+        }
         User user1 = userRepository.save(user);
         if (!user1.equals(user)) {
             throw new NullObjectException("User Not Found");

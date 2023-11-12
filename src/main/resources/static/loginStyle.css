@@ -8,6 +8,10 @@
     padding: 20px;
     background-color: #f2f2f2;
 }
+h3{
+    text-align: center;
+    color: #ff2d23;
+}
 
 .loginBox input {
     margin-bottom: 10px;
@@ -32,4 +36,11 @@
 .buttonBox a {
     color: #007bff;
     text-decoration: none;
+}
+input[type="email"],
+input[type="password"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
