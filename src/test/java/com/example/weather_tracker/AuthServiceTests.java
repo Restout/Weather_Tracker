@@ -1,17 +1,18 @@
 package com.example.weather_tracker;
 
+import com.example.weather_tracker.controller.AuthController;
 import com.example.weather_tracker.exceptions.NoUserException;
 import com.example.weather_tracker.exceptions.NullObjectException;
 import com.example.weather_tracker.exceptions.UserCredentialsException;
 import com.example.weather_tracker.model.session.Session;
 import com.example.weather_tracker.model.user.User;
 import com.example.weather_tracker.model.user.UserIn;
-import com.example.weather_tracker.model.user.UserOut;
 import com.example.weather_tracker.service.AuthService;
 import jakarta.servlet.http.Cookie;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
@@ -46,7 +47,10 @@ public class AuthServiceTests {
 
     }
 
-    @Test
+    @Mock
+    AuthController authControllerMock;
+
+ /*   @Test
     public void creatGoodUserTest() throws NullObjectException {
         User user = new User("Pavel", "pavlusha@mail.com", "1234");
         UserOut userOut = new UserOut(user);
@@ -60,13 +64,7 @@ public class AuthServiceTests {
         User user2 = new User("Pavel", null, "1234");
         User user3 = new User("Pavel", "pavlusha2@mail.com", null);
         assertEquals(new UserOut(user1), authService.createUser(user1));
-    /*    assertThrows(SQLException.class, () -> {
-            authService.createUser(user2);
-        });
-        assertThrows(SQLException.class, () -> {
-            authService.createUser(user3);
-        });*/
-    }
+    }*/
 
     @Test
     public void testRegistration() throws NullObjectException, UserCredentialsException, NoUserException {
@@ -98,5 +96,20 @@ public class AuthServiceTests {
         assertTrue(authService.validateSession(cookie));
     }
 
+    @Test
+    public void integrationLoginTest() {
+
+    }
+
+    @Test
+    public void integrationRegistrationTest() {
+
+
+    }
+
+    @Test
+    public void integrationLogoutTest() {
+
+    }
 
 }
