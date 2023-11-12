@@ -5,6 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-<a th:href="@{/logout}">Log out</a>
+<div id="auth" th:if="${authorize==true}">
+    <a th:href="@{/logout}">Log out</a>
+</div>
+<div id="non-auth" th:if="${authorize==false}">
+    <a th:href="@{/login}">LogIn</a>
+    <br>
+    <a th:href="@{/registration}">Registration</a>
+</div>
+
+
 </body>
 </html>

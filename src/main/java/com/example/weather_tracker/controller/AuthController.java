@@ -66,7 +66,7 @@ public class AuthController {
             response.addCookie(cookie);
             SessionOut sessionOut = new SessionOut(session);
             response.addHeader("Session", sessionOut.toString());
-            return "home";
+            return "redirect:/";
         } catch (UserCredentialsException e) {
             logger.log(Level.INFO, e.getMessage());//implement bindingresults to logic
             model.addAttribute("error", e.getMessage());
@@ -84,6 +84,6 @@ public class AuthController {
     public String logOut(@CookieValue(name = "Authentication") Cookie cookie, HttpServletResponse response) {
         cookie.setMaxAge(0);
         response.addCookie(cookie);
-        return "login";
+        return "redirect:/login";
     }
 }
