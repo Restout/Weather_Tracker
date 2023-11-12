@@ -9,6 +9,7 @@ import com.example.weather_tracker.model.user.User;
 import com.example.weather_tracker.model.user.UserIn;
 import com.example.weather_tracker.service.AuthService;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -48,7 +49,7 @@ public class AuthServiceTests {
     }
 
     @Mock
-    AuthController authControllerMock;
+    AuthService authServiceMock;
 
  /*   @Test
     public void creatGoodUserTest() throws NullObjectException {
